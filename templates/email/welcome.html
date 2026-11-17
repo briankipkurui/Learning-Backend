@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <div style="background-color: #e5e5e5; padding: 20px; border-radius: 8px;">
+        <h2 style="color: #0d1a2b;">Welcome to Career Elevate!</h2>
+        
+        <p>Hello {{ user_name }},</p>
+        
+        <p>Your email has been successfully verified! You can now:</p>
+        
+        <ul>
+            {% for feature in features %}
+            <li>{{ feature }}</li>
+            {% endfor %}
+        </ul>
+        
+        {% if show_cta %}
+        <p>Ready to start learning? <a href="{{ cta_url }}" style="color: #0d1a2b;">Explore Courses</a></p>
+        {% endif %}
+        
+        <p>Happy learning!<br>The Career Elevate Team</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# Log files (comprehensive patterns)
+logs/
+*.log
+*.log.*
+*.logs
+log/
+log.*
+logs.*
+app.log
+error.log
+debug.log
+access.log
+*.out
+*.err

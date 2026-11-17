@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Course Completion - Congratulations!</title>
+</head>
+<body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <div style="background-color: #e5e5e5; padding: 20px; border-radius: 8px;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h1 style="color: #0d1a2b; margin: 0;">🎉 Congratulations!</h1>
+            <h2 style="color: #4caf50; margin: 10px 0;">Course Completed!</h2>
+        </div>
+        
+        <p>Hello {{ user_name }},</p>
+        
+        <p>We are thrilled to congratulate you on successfully completing <strong>{{ course_title }}</strong>! 🎓</p>
+        
+        <p>This is a significant achievement and a testament to your dedication and hard work. You should be proud of yourself!</p>
+        
+        <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #4caf50;">
+            <h3 style="margin-top: 0; color: #0d1a2b;">🏆 Your Achievements:</h3>
+            <ul style="margin: 10px 0; padding-left: 20px; color: #333;">
+                {% for achievement in achievements %}
+                <li>{{ achievement }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        {% if has_certificate %}
+        <div style="background-color: #fff3e0; border-left: 4px solid #ff9800; padding: 20px; margin: 20px 0; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #e65100;">📜 Your Certificate is Ready!</h3>
+            <p style="margin: 10px 0; color: #333;">
+                Your certificate of completion has been generated and is ready to download. Share it on LinkedIn, add it to your resume, or display it with pride!
+            </p>
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="{{ certificate_url }}" 
+                   style="background-color: #ff9800; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
+                    Download Your Certificate
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div style="background-color: white; padding: 15px; border-radius: 8px; margin: 20px 0; border: 1px solid #d0d0d0;">
+            <h4 style="margin-top: 0; color: #0d1a2b;">What's Next?</h4>
+            <ul style="margin: 10px 0; padding-left: 20px; color: #333;">
+                {% for step in next_steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        {% if show_share_buttons %}
+        <div style="text-align: center; margin: 30px 0; padding: 20px; background-color: white; border-radius: 8px;">
+            <h4 style="margin-top: 0; color: #0d1a2b;">Share Your Success!</h4>
+            <p style="color: #666; margin-bottom: 15px;">Let others know about your achievement</p>
+            <div style="margin: 10px 0;">
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ platform_url }}" 
+                   target="_blank"
+                   style="background-color: #0077b5; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block; font-size: 14px;">
+                    Share on LinkedIn
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=I%20just%20completed%20{{ course_title }}%20on%20Career%20Elevate!&url={{ platform_url }}" 
+                   target="_blank"
+                   style="background-color: #1da1f2; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block; font-size: 14px;">
+                    Share on Twitter
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div style="background-color: #e3f2fd; border-left: 4px solid #2196f3; padding: 15px; margin: 20px 0; border-radius: 4px;">
+            <h4 style="margin-top: 0; color: #1565c0;">💡 Continue Your Learning Journey</h4>
+            <p style="margin: 5px 0; color: #333;">
+                Don't stop now! Check out more courses on Career Elevate to continue building your skills and advancing your career.
+            </p>
+            <div style="text-align: center; margin: 15px 0;">
+                <a href="{{ platform_url }}" 
+                   style="background-color: #2196f3; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; font-size: 14px;">
+                    Explore More Courses
+                </a>
+            </div>
+        </div>
+        
+        <p>Thank you for choosing Career Elevate for your professional development. We're proud to be part of your success story!</p>
+        
+        <p>Keep up the excellent work!</p>
+        
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #d0d0d0;">
+            <p style="margin: 0; color: #666; font-size: 12px; text-align: center;">
+                Best regards,<br>
+                <strong>The Career Elevate Team</strong><br>
+                <a href="https://careerelevate.ai" style="color: #0d1a2b;">careerelevate.ai</a>
+            </p>
+        </div>
+        
+        <div style="margin-top: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 4px;">
+            <p style="margin: 0; color: #666; font-size: 11px; text-align: center;">
+                You received this email because you completed a course on Career Elevate.<br>
+                Completed on: {{ completion_date }}
+            </p>
+        </div>
+    </div>
+</body>
+</html>
